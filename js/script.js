@@ -1,17 +1,17 @@
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", function() {
 	document.querySelector(".main").classList.remove("hidden");
 	document.querySelector(".home-section").classList.add("active");
 	// Page Loader
 	document.querySelector(".page-loader").classList.add("fade-out");
-	setTimeout(() =>{
+	setTimeout(function() {
 		document.querySelector(".page-loader").style.display = "none";
-	},600);
+	},700);
 })
 
 // Toggle Navbar
 const navToggler = document.querySelector(".nav-toggler");
-navToggler.addEventListener("click", () =>{
+navToggler.addEventListener("click", function() {
 	hideSection();
 	toggleNavbar();
 	document.body.classList.toggle("hide-scrolling");
@@ -24,7 +24,7 @@ function toggleNavbar(){
 }
 
 // Active section
-document.addEventListener("click", (e) =>{
+document.addEventListener("click", function(e) {
 	if(e.target.classList.contains('link-item') && e.target.hash !== ""){
 		// Active the overlay to prevent multiple clicks
 		document.querySelector(".overlay").classList.add("active");
@@ -51,7 +51,7 @@ document.addEventListener("click", (e) =>{
 const tabsContainer = document.querySelector(".about-tabs"),
 aboutSection = document.querySelector(".about-section");
 
-tabsContainer.addEventListener("click",(e) =>{
+tabsContainer.addEventListener("click", function(e) {
 	if(e.target.classList.contains("tab-item") && !e.target.classList.contains("active")){
 		tabsContainer.querySelector(".active").classList.remove("active");
 		e.target.classList.add("active");
@@ -62,7 +62,7 @@ tabsContainer.addEventListener("click",(e) =>{
 });
 
 // Portfolio Item Details Popup
-document.addEventListener("click", (e) =>{
+document.addEventListener("click", function(e) {
 	if(e.target.classList.contains("view-project-btn")){
 		togglePortfolioPopup();
 		document.querySelector(".portfolio-popup").scrollTo(0,0);
@@ -77,7 +77,7 @@ function togglePortfolioPopup(){
 document.querySelector(".pp-close").addEventListener("click", togglePortfolioPopup);
 
 // Hide popup when clicking outside of it
-document.addEventListener("click", (e) =>{
+document.addEventListener("click", function(e) {
 	if(e.target.classList.contains("pp-inner")){
 		togglePortfolioPopup();
 	}
